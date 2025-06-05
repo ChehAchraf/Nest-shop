@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.env
+*.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Django specific
+*.log
+*.pot
+*.pyc
+db.sqlite3
+*.sqlite3
+media/
+staticfiles/
+local_settings.py
+settings_local.py
+
+# VS Code / PyCharm / Editors
+.vscode/
+.idea/
+
+# macOS/Linux
+.DS_Store
+Thumbs.db
+
+# Pipenv
+Pipfile.lock
+
+# Virtualenv
+*.env
+
+# Migrations (optional)
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# Coverage reports
+htmlcov/
+.coverage
+.tox/
+.nox/
+.cache/
+nosetests.xml
+coverage.xml
+*.cover
+
+# Testing
+test-results/
+
+# Docker
+*.pid
+
+# Secrets (only if you keep them separate)
+.env
+
+# Node stuff (if using frontend tools)
+node_modules/
