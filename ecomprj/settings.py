@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # custom apps 
     'core',
+    'userauths',
 ]
 
 MIDDLEWARE = [
@@ -133,3 +134,5 @@ JAZZMIN_SETTINGS = {
     'site_header' : 'Ashraf Shop',
     'site_brand' : 'You order, We Deliver'
 }
+
+AUTH_USER_MODEL = 'userauths.User'
