@@ -32,10 +32,14 @@ class CartOrderAdmin(admin.ModelAdmin):
 class ProductImageAdmin(admin.ModelAdmin):
     list_display = ['product']
 
+class TagsAdmin(admin.ModelAdmin):
+    list_display = ['name']
+    search_fields = ['name']
+    list_filter = ['name']
 
 admin.site.register(vendor,VendorAdmin)
 admin.site.register(Product,ProductAdmin)
 admin.site.register(Category,CategoryAdmin)
 admin.site.register(CartOrder,CartOrderAdmin)
 admin.site.register(ProductImage, ProductImageAdmin)
-
+admin.site.register(Tags,TagsAdmin)

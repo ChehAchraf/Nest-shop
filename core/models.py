@@ -35,6 +35,9 @@ RATING = (
 def user_directory_path(instance, filename):
     return 'user_{0}/{1}'.format(instance.user.id, filename)
 
+def product_directory_path(instance, filename):
+    return 'products/{0}/{1}'.format(instance.pid, filename)
+
 
 class Category(models.Model):
     cid = ShortUUIDField(unique=True, length=10,max_length=30 , prefix="cat",alphabet="abcdefgh12345")
@@ -77,19 +80,23 @@ class vendor(models.Model):
     
         
 class Tags(models.Model):
-    pass
+    name = models.CharField(max_length=120)
+    
+    def __str__(self):
+        return self.name
         
 class Product(models.Model):
     pid = ShortUUIDField(unique=True, length=10,max_length=30 , prefix="pro",alphabet="abcdefgh12345")
     title = models.CharField(max_length=120)
-    image = models.ImageField(upload_to=user_directory_path)
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+    image = models.ImageField(upload_to=product_directory_path)
     description = models.TextField(blank=True)
     price = models.DecimalField(max_digits=5, decimal_places=2, default=0.00)
     old_price = models.DecimalField(max_digits=5, decimal_places=2, default=0.00)
     in_stock = models.BooleanField(default=True)
     feutured = models.BooleanField(default=False)
     digital = models.BooleanField(default=False)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True)
+    vendor = models.ForeignKey(vendor, on_delete=models.SET_NULL, null=True)
     specification = models.TextField(blank=True,null=True)
     tags = models.ManyToManyField(Tags, blank=True)
     product_status = models.CharField(choices=STATUS,max_length=10,default='in_review')
@@ -110,7 +117,7 @@ class Product(models.Model):
         return self.title
     
     def get_percentage(self):
-        new_price = (self.old_price - self.price)  * 100
+        new_price = ((self.old_price - self.price) / self.old_price) * 100
         return new_price
 
 class ProductReview(models.Model):
