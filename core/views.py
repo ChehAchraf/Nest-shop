@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from core.models import *
+from django.db.models import Count
 # Create your views here.
 
 
@@ -20,7 +21,7 @@ def product_list(request):
 
 
 def category_list_view(request):
-    categories = Category.objects.all().order_by('-id')
+    categories = Category.objects.all().order_by('-id').annotate(product_count=Count('category'))
     context = {
         'categories':categories
     }
