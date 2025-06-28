@@ -60,6 +60,7 @@ class Category(models.Model):
 class vendor(models.Model):
     vid = ShortUUIDField(unique=True, length=10,max_length=30 , prefix="ven",alphabet="abcdefgh12345")
     name = models.CharField(max_length=120)
+    cover_image = models.ImageField(upload_to=user_directory_path)
     image = models.ImageField(upload_to=user_directory_path)
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True) 
     description = models.TextField(blank=True)

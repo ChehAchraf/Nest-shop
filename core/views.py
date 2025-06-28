@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from core.models import *
 from django.db.models import Count
@@ -43,4 +43,12 @@ def vendor_list_view(request):
         'vendors':vendors
     }
     return render(request,'core/vendor_list.html',context)
+
+
+def vendor_detail_view(request,vid):
+    vendor_obj = get_object_or_404(vendor, vid=vid)
+    context = {
+        'vendor':vendor_obj
+    }
+    return render(request,'core/vendor_detail.html',context)
 
