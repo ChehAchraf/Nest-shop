@@ -105,7 +105,7 @@
                 class="col-xl-4 col-lg-6 col-md-6 text-center hover-up mb-30 animated"
               >
                 <div class="post-thumb">
-                  <a href="blog-post-right.html">
+                  <a href="{% url 'core:category_product_list' category.cid %}">
                     <img
                       class="border-radius-15"
                       src="{{category.image.url}}"
@@ -113,7 +113,7 @@
                     />
                   </a>
                   <div class="entry-meta">
-                    <a class="entry-meta meta-2" href="blog-category-grid.html"
+                    <a class="entry-meta meta-2" href="{% url 'core:category_product_list' category.cid %}"
                       ><i class="fi-rs-heart"></i
                     ></a>
                   </div>
@@ -122,12 +122,12 @@
                   <h6 class="mb-10 font-sm">
                     <a
                       class="entry-meta text-muted"
-                      href="blog-category-grid.html"
+                      href="{% url 'core:category_product_list' category.cid %}"
                       >{{category.title}}</a
                     >
                   </h6>
                   <h4 class="post-title mb-15">
-                    <a href="blog-post-right.html"
+                    <a href="{% url 'core:category_product_list' category.cid %}"
                       >{{category.title}}</a
                     >
                   </h4>
@@ -182,7 +182,7 @@
               <ul>
                 {% for category in categories %}
                 <li>
-                  <a href="shop-grid-right.html">
+                  <a href="{% url 'core:category_product_list' category.cid %}">
                     <img
                       src="{{category.image.url}}"
                       alt="{{category.title}}"

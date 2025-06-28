@@ -396,6 +396,14 @@
                                         <a href="page-about.html">About</a>
                                     </li>
                                     <li>
+                                        <a href="shop-grid-right.html">Categories <i class="fi-rs-angle-down"></i></a>
+                                        <ul class="sub-menu">
+                                            {% for category in categories %}
+                                            <li><a href="{% url 'core:category_product_list' category.cid %}">{{ category.title }}</a></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                    <li>
                                         <a href="shop-grid-right.html">Shop <i class="fi-rs-angle-down"></i></a>
                                         <ul class="sub-menu">
                                             <li><a href="shop-grid-right.html">Shop Grid – Right Sidebar</a></li>
