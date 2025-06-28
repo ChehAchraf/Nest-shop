@@ -97,11 +97,15 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=5, decimal_places=2, default=0.00)
     old_price = models.DecimalField(max_digits=5, decimal_places=2, default=0.00)
     in_stock = models.BooleanField(default=True)
+    stock_item = models.IntegerField(default=0)
+    life_time = models.IntegerField(default=0)
+    mfd = models.DateField(auto_now_add=True, null=True,blank=True)
     feutured = models.BooleanField(default=False)
     digital = models.BooleanField(default=False)
     vendor = models.ForeignKey(vendor, on_delete=models.SET_NULL, null=True , related_name="products")
     specification = models.TextField(blank=True,null=True)
     tags = models.ManyToManyField(Tags, blank=True)
+    type = models.CharField(max_length=120 , default="Organic")
     product_status = models.CharField(choices=STATUS,max_length=10,default='in_review')
     status = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -140,7 +144,7 @@ class ProductReview(models.Model):
 
 
 class ProductImage(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE , related_name="p_images")
     image = models.ImageField(upload_to='product_images')
     date = models.DateTimeField(auto_now_add=True)
     

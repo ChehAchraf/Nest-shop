@@ -11,7 +11,7 @@
                                 <div class="single-hero-slider single-animation-wrap" style="background-image: url({% static 'assets/imgs/slider/slider-1.png' %})">
                                     <div class="slider-content">
                                         <h1 class="display-2 mb-40">
-                                            Don’t miss amazing<br />
+                                            Don't miss amazing<br />
                                             grocery deals
                                         </h1>
                                         <p class="mb-65">Sign up for the daily newsletter</p>
@@ -75,9 +75,9 @@
                                         <div class="product-cart-wrap mb-30">
                                             <div class="product-img-action-wrap">
                                                 <div class="product-img product-img-zoom">
-                                                    <a href="shop-product-right.html">
-                                                        <img class="default-img" src="{{product.image.url}}" alt="" />
-                                                        <img class="hover-img" src="{{product.image.url}}" alt="" />
+                                                    <a href="{% url 'core:product_detail' product.pid %}">
+                                                        <img class="default-img" src="{{product.image.url}}" alt="{{product.title}}" />
+                                                        <img class="hover-img" src="{{product.image.url}}" alt="{{product.title}}" />
                                                     </a>
                                                 </div>
                                                 <div class="product-action-1">
@@ -93,7 +93,7 @@
                                                 <div class="product-category">
                                                     <a href="shop-grid-right.html">{{product.category.title}}</a>
                                                 </div>
-                                                <h2><a href="shop-product-right.html">{{product.title}}</a></h2>
+                                                <h2><a href="{% url 'core:product_detail' product.pid %}">{{product.title}}</a></h2>
                                                 <div class="product-rate-cover">
                                                     <div class="product-rate d-inline-block">
                                                         <div class="product-rating" style="width: 90%"></div>
@@ -101,7 +101,7 @@
                                                     <span class="font-small ml-5 text-muted"> (4.0)</span>
                                                 </div>
                                                 <div>
-                                                    <span class="font-small text-muted">By <a href="vendor-details-1.html">{{product.user.vendor.name}}</a></span>
+                                                    <span class="font-small text-muted">By <a href="{% url 'core:vendor_detail' product.vendor.vid %}">{{product.vendor.name}}</a></span>
                                                 </div>
                                                 <div class="product-card-bottom">
                                                     <div class="product-price">
@@ -235,7 +235,7 @@
                                                 <div class="product-category">
                                                     <a href="shop-grid-right.html">Snack</a>
                                                 </div>
-                                                <h2><a href="shop-product-right.html">Angie’s Boomchickapop Sweet & Salty Kettle Corn</a></h2>
+                                                <h2><a href="shop-product-right.html">Angie's Boomchickapop Sweet & Salty Kettle Corn</a></h2>
                                                 <div class="product-rate-cover">
                                                     <div class="product-rate d-inline-block">
                                                         <div class="product-rating" style="width: 85%"></div>
@@ -496,7 +496,7 @@
                                                 <div class="product-category">
                                                     <a href="shop-grid-right.html">Coffes</a>
                                                 </div>
-                                                <h2><a href="shop-product-right.html">Gorton’s Beer Battered Fish Fillets with soft paper</a></h2>
+                                                <h2><a href="shop-product-right.html">Gorton's Beer Battered Fish Fillets with soft paper</a></h2>
                                                 <div class="product-rate-cover">
                                                     <div class="product-rate d-inline-block">
                                                         <div class="product-rating" style="width: 90%"></div>
@@ -679,7 +679,7 @@
                                                 <div class="product-category">
                                                     <a href="shop-grid-right.html">Snack</a>
                                                 </div>
-                                                <h2><a href="shop-product-right.html">Angie’s Boomchickapop Sweet & Salty Kettle Corn</a></h2>
+                                                <h2><a href="shop-product-right.html">Angie's Boomchickapop Sweet & Salty Kettle Corn</a></h2>
                                                 <div class="product-rate-cover">
                                                     <div class="product-rate d-inline-block">
                                                         <div class="product-rating" style="width: 85%"></div>
@@ -940,7 +940,7 @@
                                                 <div class="product-category">
                                                     <a href="shop-grid-right.html">Coffes</a>
                                                 </div>
-                                                <h2><a href="shop-product-right.html">Gorton’s Beer Battered Fish Fillets with soft paper</a></h2>
+                                                <h2><a href="shop-product-right.html">Gorton's Beer Battered Fish Fillets with soft paper</a></h2>
                                                 <div class="product-rate-cover">
                                                     <div class="product-rate d-inline-block">
                                                         <div class="product-rating" style="width: 90%"></div>
@@ -1123,7 +1123,7 @@
                                                 <div class="product-category">
                                                     <a href="shop-grid-right.html">Snack</a>
                                                 </div>
-                                                <h2><a href="shop-product-right.html">Angie’s Boomchickapop Sweet & Salty Kettle Corn</a></h2>
+                                                <h2><a href="shop-product-right.html">Angie's Boomchickapop Sweet & Salty Kettle Corn</a></h2>
                                                 <div class="product-rate-cover">
                                                     <div class="product-rate d-inline-block">
                                                         <div class="product-rating" style="width: 85%"></div>
@@ -1384,7 +1384,7 @@
                                                 <div class="product-category">
                                                     <a href="shop-grid-right.html">Coffes</a>
                                                 </div>
-                                                <h2><a href="shop-product-right.html">Gorton’s Beer Battered Fish Fillets with soft paper</a></h2>
+                                                <h2><a href="shop-product-right.html">Gorton's Beer Battered Fish Fillets with soft paper</a></h2>
                                                 <div class="product-rate-cover">
                                                     <div class="product-rate d-inline-block">
                                                         <div class="product-rating" style="width: 90%"></div>
@@ -1567,7 +1567,7 @@
                                                 <div class="product-category">
                                                     <a href="shop-grid-right.html">Snack</a>
                                                 </div>
-                                                <h2><a href="shop-product-right.html">Angie’s Boomchickapop Sweet & Salty Kettle Corn</a></h2>
+                                                <h2><a href="shop-product-right.html">Angie's Boomchickapop Sweet & Salty Kettle Corn</a></h2>
                                                 <div class="product-rate-cover">
                                                     <div class="product-rate d-inline-block">
                                                         <div class="product-rating" style="width: 85%"></div>
@@ -1828,7 +1828,7 @@
                                                 <div class="product-category">
                                                     <a href="shop-grid-right.html">Coffes</a>
                                                 </div>
-                                                <h2><a href="shop-product-right.html">Gorton’s Beer Battered Fish Fillets with soft paper</a></h2>
+                                                <h2><a href="shop-product-right.html">Gorton's Beer Battered Fish Fillets with soft paper</a></h2>
                                                 <div class="product-rate-cover">
                                                     <div class="product-rate d-inline-block">
                                                         <div class="product-rating" style="width: 90%"></div>
@@ -2011,7 +2011,7 @@
                                                 <div class="product-category">
                                                     <a href="shop-grid-right.html">Snack</a>
                                                 </div>
-                                                <h2><a href="shop-product-right.html">Angie’s Boomchickapop Sweet & Salty Kettle Corn</a></h2>
+                                                <h2><a href="shop-product-right.html">Angie's Boomchickapop Sweet & Salty Kettle Corn</a></h2>
                                                 <div class="product-rate-cover">
                                                     <div class="product-rate d-inline-block">
                                                         <div class="product-rating" style="width: 85%"></div>
@@ -2272,7 +2272,7 @@
                                                 <div class="product-category">
                                                     <a href="shop-grid-right.html">Coffes</a>
                                                 </div>
-                                                <h2><a href="shop-product-right.html">Gorton’s Beer Battered Fish Fillets with soft paper</a></h2>
+                                                <h2><a href="shop-product-right.html">Gorton's Beer Battered Fish Fillets with soft paper</a></h2>
                                                 <div class="product-rate-cover">
                                                     <div class="product-rate d-inline-block">
                                                         <div class="product-rating" style="width: 90%"></div>
@@ -2455,7 +2455,7 @@
                                                 <div class="product-category">
                                                     <a href="shop-grid-right.html">Snack</a>
                                                 </div>
-                                                <h2><a href="shop-product-right.html">Angie’s Boomchickapop Sweet & Salty Kettle Corn</a></h2>
+                                                <h2><a href="shop-product-right.html">Angie's Boomchickapop Sweet & Salty Kettle Corn</a></h2>
                                                 <div class="product-rate-cover">
                                                     <div class="product-rate d-inline-block">
                                                         <div class="product-rating" style="width: 85%"></div>
@@ -2716,7 +2716,7 @@
                                                 <div class="product-category">
                                                     <a href="shop-grid-right.html">Coffes</a>
                                                 </div>
-                                                <h2><a href="shop-product-right.html">Gorton’s Beer Battered Fish Fillets with soft paper</a></h2>
+                                                <h2><a href="shop-product-right.html">Gorton's Beer Battered Fish Fillets with soft paper</a></h2>
                                                 <div class="product-rate-cover">
                                                     <div class="product-rate d-inline-block">
                                                         <div class="product-rating" style="width: 90%"></div>
@@ -3434,7 +3434,7 @@
                                 </figure>
                                 <div class="col-md-8 mb-0">
                                     <h6>
-                                        <a href="shop-product-right.html">Angie’s Boomchickapop Sweet & Salty Kettle Corn</a>
+                                        <a href="shop-product-right.html">Angie's Boomchickapop Sweet & Salty Kettle Corn</a>
                                     </h6>
                                     <div class="product-rate-cover">
                                         <div class="product-rate d-inline-block">
