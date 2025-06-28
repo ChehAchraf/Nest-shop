@@ -11,3 +11,10 @@ def index(request):
     }
     return render(request,'core/index.html',context)
 
+def product_list(request):
+    products = Product.objects.all().order_by('-id')
+    context = {
+        'products':products
+    }
+    return render(request,'core/product_list.html',context)
+
