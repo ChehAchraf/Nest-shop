@@ -98,7 +98,7 @@ class Product(models.Model):
     in_stock = models.BooleanField(default=True)
     feutured = models.BooleanField(default=False)
     digital = models.BooleanField(default=False)
-    vendor = models.ForeignKey(vendor, on_delete=models.SET_NULL, null=True)
+    vendor = models.ForeignKey(vendor, on_delete=models.SET_NULL, null=True , related_name="products")
     specification = models.TextField(blank=True,null=True)
     tags = models.ManyToManyField(Tags, blank=True)
     product_status = models.CharField(choices=STATUS,max_length=10,default='in_review')
