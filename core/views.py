@@ -56,9 +56,43 @@ def vendor_detail_view(request,vid):
 def product_detail_view(request,pid):
     product_obj = get_object_or_404(Product, pid=pid)
     p_images = product_obj.p_images.all()
+    reviews = ProductReview.objects.filter(product=product_obj).order_by('-date')
+    
+    # Get related products from the same category (excluding current product)
+    related_products = Product.objects.filter(
+        category=product_obj.category,
+        product_status='published'
+    ).exclude(pid=product_obj.pid).order_by('-created_at')[:4]
+    
+    # Get new products (recently added)
+    new_products = Product.objects.filter(
+        product_status='published'
+    ).exclude(pid=product_obj.pid).order_by('-created_at')[:4]
+    
+    # Get categories with product count
+    categories = Category.objects.all().order_by('-id').annotate(product_count=Count('category'))
+    
+    # Calculate average rating
+    if reviews.exists():
+        avg_rating = sum(review.rating for review in reviews) / reviews.count()
+        # Calculate rating distribution
+        rating_distribution = {}
+        for i in range(1, 6):
+            rating_distribution[i] = reviews.filter(rating=i).count()
+    else:
+        avg_rating = 0
+        rating_distribution = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
+    
     context = {
         'product':product_obj,
-        'p_images':p_images
+        'p_images':p_images,
+        'reviews':reviews,
+        'avg_rating':avg_rating,
+        'rating_distribution':rating_distribution,
+        'total_reviews':reviews.count(),
+        'related_products':related_products,
+        'new_products':new_products,
+        'categories':categories
     }
     return render(request,'core/product_detail.html',context)
 
