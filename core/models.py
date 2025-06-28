@@ -51,6 +51,8 @@ class Category(models.Model):
     def category_image(self):
         return mark_safe('<img src="%s" width="50" height="50" />' % (self.img.url))
     
+    
+    
     def __str__(self):
         return self.title
     
@@ -88,7 +90,7 @@ class Tags(models.Model):
 class Product(models.Model):
     pid = ShortUUIDField(unique=True, length=10,max_length=30 , prefix="pro",alphabet="abcdefgh12345")
     title = models.CharField(max_length=120)
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True , related_name="category")
     image = models.ImageField(upload_to=product_directory_path)
     description = models.TextField(blank=True)
     price = models.DecimalField(max_digits=5, decimal_places=2, default=0.00)
