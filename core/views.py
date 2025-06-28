@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from core.models import *
-from django.db.models import Count
+from django.db.models import Count, Q
 # Create your views here.
 
 
@@ -100,8 +100,20 @@ def product_detail_view(request,pid):
 
 def search_view(request):
     query = request.GET.get('q')
-    products = Product.objects.filter(title__icontains=query , description__icontains=query).order_by('-id')
+    if query:
+        products = Product.objects.filter(
+            Q(title__icontains=query) | 
+            Q(description__icontains=query) | 
+            Q(category__title__icontains=query) | 
+            Q(vendor__name__icontains=query) |
+            Q(type__icontains=query) |
+            Q(tags__name__icontains=query)
+        ).filter(product_status='published').distinct().order_by('-id')
+    else:
+        products = Product.objects.filter(product_status='published').order_by('-id')
+    
     context = {
-        'products':products
+        'products': products,
+        'query': query
     }
     return render(request,'core/product_list.html',context)

@@ -162,7 +162,11 @@
                 <div class="col-12">
                     <div class="shop-product-fillter">
                         <div class="totall-product">
-                            <p>We found <strong class="text-brand">29</strong> items for you!</p>
+                            {% if query %}
+                                <p>We found <strong class="text-brand">{{ products.count }}</strong> item{{ products.count|pluralize:"s" }} for "<strong>{{ query }}</strong>"!</p>
+                            {% else %}
+                                <p>We found <strong class="text-brand">{{ products.count }}</strong> item{{ products.count|pluralize:"s" }} for you!</p>
+                            {% endif %}
                         </div>
                         <div class="sort-by-product-area">
                             <div class="sort-by-cover mr-10">

@@ -18,4 +18,6 @@ urlpatterns = [
     path('vendors/<str:vid>/',views.vendor_detail_view, name="vendor_detail"),
     #product detail
     path('product/<str:pid>/',views.product_detail_view, name="product_detail"),
+    #search
+    path('search/',views.search_view, name="search"),
 ]
