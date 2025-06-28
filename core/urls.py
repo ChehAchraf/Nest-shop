@@ -16,4 +16,6 @@ urlpatterns = [
     path('vendors/',views.vendor_list_view, name="vendor_list"),
     #vendor detail
     path('vendors/<str:vid>/',views.vendor_detail_view, name="vendor_detail"),
+    #product detail
+    path('product/<str:pid>/',views.product_detail_view, name="product_detail"),
 ]

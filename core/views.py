@@ -52,3 +52,11 @@ def vendor_detail_view(request,vid):
     }
     return render(request,'core/vendor_detail.html',context)
 
+
+def product_detail_view(request,pid):
+    product_obj = get_object_or_404(Product, pid=pid)
+    context = {
+        'product':product_obj
+    }
+    return render(request,'core/product_detail.html',context)
+
