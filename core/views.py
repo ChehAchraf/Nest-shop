@@ -18,3 +18,11 @@ def product_list(request):
     }
     return render(request,'core/product_list.html',context)
 
+
+def category_list_view(request):
+    categories = Category.objects.all().order_by('-id')
+    context = {
+        'categories':categories
+    }
+    return render(request,'core/category_list.html',context)
+
